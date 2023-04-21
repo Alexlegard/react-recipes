@@ -1,11 +1,11 @@
 import React from 'react'
 import RecipeList from './RecipeList'
 import Pagination from './Pagination'
+import './Main.css'
 
 function Main() {
   return (
-    <div>
-        <div>Hello world.</div>
+    <div className="main">
         <RecipeList />
         <Pagination />
     </div>

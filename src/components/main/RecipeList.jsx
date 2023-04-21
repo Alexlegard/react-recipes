@@ -1,11 +1,15 @@
 import React from 'react'
+import RecipeCard from './RecipeCard'
+import { recipes } from "../../data/Recipes"
 
 function RecipeList() {
   return (
     <div>
-        <div>Recipe 1</div>
-        <div>Recipe 2</div>
-        <div>Recipe 3</div>
+      {
+        recipes.map( (recipe) => {
+          return <RecipeCard key={recipe.id} name={recipe.name} description={recipe.description} />
+        })
+      }
     </div>
   )
 }

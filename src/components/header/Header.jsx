@@ -2,10 +2,10 @@ import React from 'react';
 import {Link} from "react-router-dom"
 import './Header.css';
 
-function Header() {
+function Header(props) {
 	return (
 		<div className="header">
-			<h1>Marvelous Meals</h1>
+			<h1>Welcome, {props.name}!</h1>
 			<nav className="navbar">
 				<ul className="navbar ul">
 					<li><Link to="/create-recipe">Add</Link></li>

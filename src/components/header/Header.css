@@ -5,3 +5,16 @@
     justify-content:space-evenly;
     list-style:none;
 }
+
+.navbar ul a {
+    text-decoration:none;
+}
+
+.header {
+    background-color:#AAFF00;
+}
+
+.header h1 {
+    margin-top: 0;
+    text-align: center;
+}

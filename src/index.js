@@ -9,6 +9,8 @@ import App from "./App";
 import CreateRecipe from './routes/CreateRecipe';
 import UpdateRecipe from './routes/UpdateRecipe';
 import DeleteRecipe from './routes/DeleteRecipe';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 const router = createBrowserRouter([
   {
@@ -17,15 +19,31 @@ const router = createBrowserRouter([
   },
   {
     path: "/create-recipe",
-    element: <CreateRecipe />
+    element:
+      <div>
+        <Header name="Alex" />
+        <CreateRecipe />
+        <Footer />
+      </div>
   },
   {
     path: "/update-recipe",
-    element: <UpdateRecipe />
+    element:
+      <div>
+        <Header />
+        <UpdateRecipe />
+        <Footer/>
+      </div>
+    
   },
   {
     path: "/delete-recipe",
-    element: <DeleteRecipe />
+    element:
+      <div>
+        <Header />
+        <DeleteRecipe />
+        <Footer />
+      </div>
   },
 ]);
 

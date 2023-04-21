@@ -4,18 +4,18 @@ import './pagination.css';
 function Pagination() {
   return (
     <div className="pagination">
-        <div>&larr;</div>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>&rarr;</div>
+        <div className="pagination-button">&larr;</div>
+        <div className="pagination-button">1</div>
+        <div className="pagination-button">2</div>
+        <div className="pagination-button">3</div>
+        <div className="pagination-button">4</div>
+        <div className="pagination-button">5</div>
+        <div className="pagination-button">6</div>
+        <div className="pagination-button">7</div>
+        <div className="pagination-button">8</div>
+        <div className="pagination-button">9</div>
+        <div className="pagination-button">10</div>
+        <div className="pagination-button">&rarr;</div>
     </div>
   )
 }

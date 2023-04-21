@@ -1,7 +1,9 @@
+import './Footer.css';
+
 function Footer() {
 	return (
-		<footer>
-			<div>&copy; Alex Legard 2023</div>
+		<footer className="footer">
+			<div className="copyright">&copy; Alex Legard 2023</div>
 
 			<div>
 				<a href="https://github.com/Alexlegard/React-Recipes"></a>
