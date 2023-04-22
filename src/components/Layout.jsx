@@ -4,14 +4,14 @@ import Main from './main/Main'
 import Footer from './footer/Footer'
 import './Layout.css'
 
-function Layout() {
-  return (
+function Layout({children, name}) {
+  return <>
     <div className="container">
-        <Header name="Alex" />
-        <Main />
+        <Header />
+        {children}
         <Footer />
     </div>
-  )
+  </>
 }
 
 export default Layout

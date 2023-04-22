@@ -4,7 +4,7 @@
     align-items: center;
     justify-content:space-evenly;
     position:absolute;
-    bottom:0;
+    bottom: 10px;
     width:100%;
 }
 
@@ -13,7 +13,7 @@
     width:40px;
     height:40px;
     border-radius:20px;
-    background-color: #aaff00;
+    background-color: #A2C5BC;
     text-align: center;
     font-size:16px;
     font-weight: bold;

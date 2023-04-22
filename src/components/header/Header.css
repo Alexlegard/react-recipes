@@ -11,7 +11,8 @@
 }
 
 .header {
-    background-color:#AAFF00;
+    background-color:#A2C5BC;
+    box-shadow: 0 10px 3px rgb(162 197 188 / 1);
 }
 
 .header h1 {
