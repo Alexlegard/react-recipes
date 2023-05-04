@@ -1,0 +1,54 @@
+{
+    "compilerOptions": {
+        "outDir": "build/lib",
+        "lib": [
+            "es5",
+            "es6",
+            "es7",
+            "es2017",
+            "dom",
+            "esnext.asynciterable"
+        ],
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "target": "es5",
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "jsx": "react-jsx",
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "isolatedModules": true,
+        "incremental": false,
+        "pretty": true,
+        "noEmit": true,
+        "baseUrl": "./src",
+        "noFallthroughCasesInSwitch": true
+    },
+    "include": [
+        "src",
+        ".storybook/webpack.config.ts",
+        "browserstack/tests/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "build",
+        "api-docs",
+        "storybook-static",
+        "public",
+        "coverage",
+        "coverage-ts",
+        "config",
+        ".rush"
+    ]
+}

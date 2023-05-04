@@ -1,0 +1,10 @@
+form input,
+form textarea {
+    display:block;
+    margin-bottom:10px;
+}
+
+.create {
+    max-width:400px;
+    margin:auto;
+}

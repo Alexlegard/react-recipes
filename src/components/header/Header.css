@@ -8,14 +8,20 @@
 
 .navbar ul a {
     text-decoration:none;
+    color:white;
 }
 
 .header {
-    background-color:#A2C5BC;
-    box-shadow: 0 10px 3px rgb(162 197 188 / 1);
+    background-color:#007A00;
+    box-shadow: 0 10px 3px rgb(0 122 0 / 1);
+    padding-top:10px;
 }
 
-.header h1 {
+.header h2 {
     margin-top: 0;
     text-align: center;
+    color:white;
+    font-size:24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight:normal;
 }

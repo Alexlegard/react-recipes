@@ -1,4 +1,5 @@
 import './Footer.css';
+import ClearRecipes from './ClearRecipes'
 
 function Footer() {
 	return (
@@ -8,6 +9,8 @@ function Footer() {
 			<div>
 				<a href="https://github.com/Alexlegard/React-Recipes"></a>
 			</div>
+			
+			<ClearRecipes />
 		</footer>
 	);
 }

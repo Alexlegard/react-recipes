@@ -1,9 +1,10 @@
 import React from 'react'
+import CreateRecipeForm from '../components/pageComponents/CreateRecipeForm'
 
 function CreateRecipe() {
   return (
     <div>
-      I'm the create recipe page!
+      <CreateRecipeForm />
     </div>
   )
 }

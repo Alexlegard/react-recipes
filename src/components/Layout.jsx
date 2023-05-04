@@ -4,12 +4,12 @@ import Main from './main/Main'
 import Footer from './footer/Footer'
 import './Layout.css'
 
-function Layout({children, name}) {
+function Layout({ children, name = "" }) {
   return <>
     <div className="container">
-        <Header />
-        {children}
-        <Footer />
+      <Header />
+      {children}
+      <Footer />
     </div>
   </>
 }

@@ -5,13 +5,11 @@ import './Header.css';
 function Header(props) {
 	return (
 		<div className="header">
-			<h1>Welcome, Alex!</h1>
+			<h2>Welcome, Alex!</h2>
 			<nav className="navbar">
 				<ul className="navbar ul">
 					<li><Link to="/">List</Link></li>
 					<li><Link to="/create-recipe">Add</Link></li>
-					<li><Link to="/update-recipe">Update</Link></li>
-					<li><Link to="/delete-recipe">Delete</Link></li>
 				</ul>
 			</nav>
 		</div>

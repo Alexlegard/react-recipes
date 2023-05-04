@@ -7,8 +7,6 @@ import {
 import './index.css';
 import App from "./App";
 import CreateRecipe from './routes/CreateRecipe';
-import UpdateRecipe from './routes/UpdateRecipe';
-import DeleteRecipe from './routes/DeleteRecipe';
 import ShowRecipe from './routes/ShowRecipe'
 import Layout from './components/Layout';
 
@@ -25,20 +23,6 @@ const router = createBrowserRouter([
       </Layout>
   },
   {
-    path: "/update-recipe",
-    element:
-      <Layout>
-        <UpdateRecipe />
-      </Layout>
-  },
-  {
-    path: "/delete-recipe",
-    element:
-      <Layout>
-        <DeleteRecipe />
-      </Layout>
-  },
-  {
     path: "/show/:id",
     element:
       <Layout>
@@ -47,7 +31,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
