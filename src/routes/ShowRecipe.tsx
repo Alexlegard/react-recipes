@@ -5,7 +5,7 @@ import { Recipe } from '../types'
 
 function ShowRecipe() {
 
-    const localStorageRecipes = JSON.parse(localStorage.getItem('recipes') ?? "") || []
+    const localStorageRecipes = JSON.parse(localStorage.getItem('recipes') ?? "[]")
     const allRecipes: Recipe[] = [...recipes, ...localStorageRecipes];
     console.log(allRecipes);
 
