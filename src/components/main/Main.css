@@ -1,4 +1,9 @@
 .main {
-	position:relative;
-	height:83vh;
+	min-height: 83vh;
+	padding-top: 10px;
+	padding-bottom: 70px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }

@@ -2,26 +2,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content:space-evenly;
-    list-style:none;
+    justify-content: space-evenly;
+    list-style: none;
 }
 
 .navbar ul a {
-    text-decoration:none;
-    color:white;
+    text-decoration: none;
+    color: white;
 }
 
 .header {
-    background-color:#007A00;
+    background-color: #007A00;
     box-shadow: 0 10px 3px rgb(0 122 0 / 1);
-    padding-top:10px;
+    padding-top: 10px;
+    height: 70px;
 }
 
 .header h2 {
     margin-top: 0;
     text-align: center;
-    color:white;
-    font-size:24px;
+    color: white;
+    font-size: 24px;
     font-family: 'Roboto', sans-serif;
-    font-weight:normal;
+    font-weight: normal;
 }

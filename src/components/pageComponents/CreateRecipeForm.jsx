@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './forms.css'
+import { recipes } from "../../data/Recipes"
 
 function CreateRecipeForm() {
 
+    const numRecipesJsRecipes = recipes.length + 1;
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [ingredients, setIngredients] = useState('')
@@ -10,14 +12,14 @@ function CreateRecipeForm() {
     const [instructions, setInstructions] = useState('')
     const [prepTime, setPrepTime] = useState('')
     let [nextId, setNextId] = useState(
-        4 + (JSON.parse(localStorage.getItem('recipes')) || []).length
+        numRecipesJsRecipes + (JSON.parse(localStorage.getItem('recipes')) || []).length
     )
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const ingredientsArray = ingredients.split(",")
-            .map( (ingredient)=>ingredient.trim() );
+            .map((ingredient) => ingredient.trim());
 
         const recipe = {
             name: name,
@@ -28,10 +30,10 @@ function CreateRecipeForm() {
             prepTime: parseInt(prepTime),
             id: nextId
         };
-        
+
         // Make an existing recipes variable
         const existingRecipes = JSON.parse(localStorage.getItem('recipes')) || []
-    
+
         // Make an updated recipes variable and update localstorage
         const updatedRecipes = [...existingRecipes, recipe];
         localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
@@ -55,47 +57,47 @@ function CreateRecipeForm() {
                     type="text"
                     required
                     value={name}
-                    onChange={ (e)=>setName(e.target.value) } />
+                    onChange={(e) => setName(e.target.value)} />
 
                 <label>Image:</label>
                 <input type="url"
                     required
                     value={image}
-                    onChange={ (e)=>setImage(e.target.value) }/>
+                    onChange={(e) => setImage(e.target.value)} />
 
                 <label>Ingredients:</label>
                 <input type="text"
                     required
                     value={ingredients}
-                    onChange={ (e)=>setIngredients(e.target.value) } />
+                    onChange={(e) => setIngredients(e.target.value)} />
 
                 <label>Description:</label>
                 <input type="textarea"
                     required
                     value={description}
-                    onChange={ (e)=>setDescription(e.target.value) } />
+                    onChange={(e) => setDescription(e.target.value)} />
 
                 <label>Instructions:</label>
                 <input type="textarea"
                     required
                     value={instructions}
-                    onChange={ (e)=>setInstructions(e.target.value) } />
+                    onChange={(e) => setInstructions(e.target.value)} />
 
                 <label>Prep time:</label>
                 <input type="number"
                     required
                     value={prepTime}
-                    onChange={ (e)=>setPrepTime(e.target.value) } />
+                    onChange={(e) => setPrepTime(e.target.value)} />
 
                 <button type="submit">Create Recipe</button>
 
-                <p>Name: { name }</p>
-                <p>Image: { image }</p>
-                <p>Ingredients: { ingredients }</p>
-                <p>Description: { description }</p>
-                <p>Instructions: { instructions }</p>
-                <p>prepTime: { prepTime }</p>
-                <p>nextId: { nextId }</p>
+                <p>Name: {name}</p>
+                <p>Image: {image}</p>
+                <p>Ingredients: {ingredients}</p>
+                <p>Description: {description}</p>
+                <p>Instructions: {instructions}</p>
+                <p>prepTime: {prepTime}</p>
+                <p>nextId: {nextId}</p>
 
                 <p>{localStorage.getItem('recipes')}</p>
             </form>
