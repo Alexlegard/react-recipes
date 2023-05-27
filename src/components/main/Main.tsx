@@ -1,9 +1,10 @@
 import RecipeList from './RecipeList'
 import Pagination from './Pagination'
 import './Main.css'
-// import { recipes } from "../../data/Recipes"
-import paginationTestRecipes from "../../data/PaginationTestRecipes"
+import { recipes } from "../../data/Recipes"
+// import paginationTestRecipes from "../../data/PaginationTestRecipes"
 import { Recipe } from "../../types"
+import Cuisines from "./Cuisines"
 
 
 type MainProps = {
@@ -13,7 +14,7 @@ type MainProps = {
 function Main(props: MainProps) {
 
   //Change this variable to switch to the other data set
-  const storedRecipes: Recipe[] = paginationTestRecipes;
+  const storedRecipes: Recipe[] = recipes;
 
 
   // Set number of recipes per page
@@ -21,8 +22,10 @@ function Main(props: MainProps) {
 
   // Create a combined array of stored recipes and localstorage recipes
   const lsRecipes = localStorage.getItem('recipes') || ""
+  console.log("🚀 ~ file: Main.tsx:24 ~ Main ~ lsRecipes:", lsRecipes)
   const localStorageRecipes = lsRecipes ? JSON.parse(lsRecipes) : []
   const allRecipes: Recipe[] = [...storedRecipes, ...localStorageRecipes];
+  console.log("🚀 ~ file: Main.tsx:27 ~ Main ~ allRecipes:", allRecipes)
 
   // We use the urlSearchParams class
   const urlSearchParams = new URLSearchParams(window.location.search);
@@ -31,20 +34,18 @@ function Main(props: MainProps) {
   // Now for just the value of page
   const page = Number(queryParams.page);
   let pageStart = (page - 1) * 10;
-  console.log("🚀 ~ file: Main.tsx:34 ~ Main ~ page:", page)
-  console.log("🚀 ~ file:Main.tsx:35 ~ Main ~ pageStart:", pageStart)
 
-
+  // Make an empty displayedContent array
   let displayedContent: Recipe[] = [];
   if (!queryParams.page) {
-    displayedContent = paginationTestRecipes.slice(0, recipesPerPage);
+    displayedContent = allRecipes.slice(0, recipesPerPage);
   } else {
-    displayedContent = paginationTestRecipes.slice(pageStart, pageStart + recipesPerPage);
+    displayedContent = allRecipes.slice(pageStart, pageStart + recipesPerPage);
   }
-  console.log("🚀 ~ file: Main.tsx:44 ~ Main ~ displayedContent:", displayedContent)
 
   return (
     <div className="main">
+      <Cuisines allRecipes={allRecipes} />
       <RecipeList allRecipes={displayedContent} />
       <Pagination
         numRecipes={allRecipes.length}

@@ -11,6 +11,8 @@ function CreateRecipeForm() {
     const [description, setDescription] = useState('')
     const [instructions, setInstructions] = useState('')
     const [prepTime, setPrepTime] = useState('')
+    const [cuisine, setCuisine] = useState('')
+    const [vegetarian, setVegetarian] = useState(false)
     let [nextId, setNextId] = useState(
         numRecipesJsRecipes + (JSON.parse(localStorage.getItem('recipes')) || []).length
     )
@@ -22,13 +24,15 @@ function CreateRecipeForm() {
             .map((ingredient) => ingredient.trim());
 
         const recipe = {
+            id: nextId,
             name: name,
             image: image,
             ingredients: ingredientsArray,
             description: description,
             instructions: instructions,
             prepTime: parseInt(prepTime),
-            id: nextId
+            cuisine: cuisine,
+            vegetarian: vegetarian,
         };
 
         // Make an existing recipes variable
@@ -45,7 +49,13 @@ function CreateRecipeForm() {
         setDescription('');
         setInstructions('');
         setPrepTime('');
+        setCuisine('');
+        setVegetarian(false);
         setNextId(nextId + 1);
+    }
+
+    const handleCheckboxChange = () => {
+        setVegetarian(!vegetarian);
     }
 
     return (
@@ -89,15 +99,28 @@ function CreateRecipeForm() {
                     value={prepTime}
                     onChange={(e) => setPrepTime(e.target.value)} />
 
+                <label>Cuisine:</label>
+                <input type="text"
+                    required
+                    value={cuisine}
+                    onChange={(e) => setCuisine(e.target.value)} />
+
+                <label>Vegetarian:</label>
+                <input type="checkbox"
+                    checked={vegetarian}
+                    onChange={(e) => handleCheckboxChange(e.target.value)} />
+
                 <button type="submit">Create Recipe</button>
 
-                <p>Name: {name}</p>
-                <p>Image: {image}</p>
-                <p>Ingredients: {ingredients}</p>
-                <p>Description: {description}</p>
-                <p>Instructions: {instructions}</p>
-                <p>prepTime: {prepTime}</p>
-                <p>nextId: {nextId}</p>
+                {console.log("🚀 Name:", name)}
+                {console.log("🚀 Image:", image)}
+                {console.log("🚀 Ingredients:", ingredients)}
+                {console.log("🚀 Description:", description)}
+                {console.log("🚀 Instructions:", instructions)}
+                {console.log("🚀 PrepTime:", prepTime)}
+                {console.log("🚀 Cuisine:", cuisine)}
+                {console.log("🚀 Vegetarian:", vegetarian)}
+                {console.log("🚀 NextId:", nextId)}
 
                 <p>{localStorage.getItem('recipes')}</p>
             </form>

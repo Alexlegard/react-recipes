@@ -1,9 +1,13 @@
 export type Recipe = {
-    prepTime?: number,
-    instructions?: string,
-    id: string,
+    id: number,
     name: string,
-    description: string,
     image?: string,
-    ingredients?: string[]
+    ingredients?: string[],
+    description: string,
+    instructions?: string,
+    prepTime?: number,
+    cuisine?: string,
+    vegetarian?: boolean
 }
+
+export type RecipesArray = Recipe[];
