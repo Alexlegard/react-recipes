@@ -29,6 +29,7 @@ const router = createBrowserRouter([
         <ShowRecipe />
       </Layout>
   },
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);

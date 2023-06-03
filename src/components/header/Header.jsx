@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom"
 import './Header.css';
+import './SearchBar.tsx';
 
 function Header(props) {
 	return (
@@ -10,6 +11,7 @@ function Header(props) {
 				<ul className="navbar ul">
 					<li><Link to="/">List</Link></li>
 					<li><Link to="/create-recipe">Add</Link></li>
+					<li><SearchBar /><li/>
 				</ul>
 			</nav>
 		</div>
