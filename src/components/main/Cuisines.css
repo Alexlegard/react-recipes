@@ -1,0 +1,27 @@
+.cuisine-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.cuisine-button-container {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.cuisine-button {
+    background-color: #E0F9D8;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 20px;
+    border: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.cuisine-button.selected {
+    background-color: #79D257;
+}
+
+.cuisine-button:hover {
+    background-color: #79D257;
+}

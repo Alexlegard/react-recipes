@@ -63,6 +63,6 @@ export const recipes = [
 		instructions: "Marinate the chicken nuggets in chili sauce. Cook the chicken and broccoli sor 10 minutes. Serve.",
 		prepTime: 30,
 		cuisine: "Chinese",
-		vegetarian: true,
+		vegetarian: false,
 	},
 ];

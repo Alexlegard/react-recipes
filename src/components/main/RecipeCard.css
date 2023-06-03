@@ -1,15 +1,18 @@
 .recipe-card-link {
-    margin:10px;
-    color:black;
+    margin: 10px;
+    color: black;
     text-decoration: none;
-    display:block;
-    margin:10px auto;
-    width:50%;
+    display: block;
+    margin: 10px auto;
+    width: 50%;
 }
 
 .recipe-card {
-    background-color:#F6FFEB;
-    border:1px solid black;
-    padding-bottom:10px;
+    background-color: #F6FFEB;
+    border: 1px solid black;
+    padding-bottom: 10px;
 }
 
+.recipe-card:hover {
+    background-color: #79D257;
+}

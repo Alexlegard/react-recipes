@@ -21,8 +21,6 @@ function ShowRecipe() {
 
     const ingredientsList = thisRecipe.ingredients ? thisRecipe.ingredients.join(', ') : null
 
-    // https://shortcut.school
-
     return (
         <div>
             <h1>{thisRecipe.name}</h1>
@@ -40,6 +38,14 @@ function ShowRecipe() {
             </div>
             <div className="prepTime">
                 <b>Prep time:</b> {thisRecipe.prepTime} minutes
+            </div>
+            <div className="cuisine">
+                <b>Cuisine: </b>{thisRecipe.cuisine}
+            </div>
+            <div className="vegetarian">
+                <b>Vegetarian: </b>{
+                    thisRecipe.vegetarian ? "Yes" : "No"
+                }
             </div>
         </div>
     );

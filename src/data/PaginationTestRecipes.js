@@ -10,7 +10,7 @@ for (let i = 1; i <= 25; i++) {
         description: "Recipe description",
         instructions: "Recipe instructions",
         prepTime: 30,
-        cuisine: "American",
+        cuisine: "Cuisine" + i,
         vegetarian: true
     };
 
