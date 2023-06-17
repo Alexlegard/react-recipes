@@ -47,10 +47,12 @@ function Main(props: MainProps) {
         .toLowerCase()
         .includes(searchValue.toLowerCase());
       const ingredientsMatch = recipe.ingredients.some(ingredient =>
-        ingredient.toLowerCase() === searchValue.toLowerCase()
-      );
+        ingredient.toLowerCase() === searchValue.toLowerCase());
+      const cuisineMatches = recipe.cuisine
+        .toLowerCase()
+        .includes(searchValue.toLowerCase());
 
-      return titleMatches || descriptionMatches || ingredientsMatch;
+      return titleMatches || descriptionMatches || ingredientsMatch || cuisineMatches;
     });
   }
 

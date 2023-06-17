@@ -23,6 +23,8 @@ function PaginationButton(props: PaginationButtonProps) {
 
     const url = `/?${urlSearchParams.toString()}`;
 
+    console.log("🚀 ~ file: PaginationButton.tsx:26 ~ PaginationButton ~ url:", url)
+    
     function navigateToPage(pageNum: number) {
         navigate(url);
         window.location.reload();

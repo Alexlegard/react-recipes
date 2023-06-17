@@ -1,4 +1,6 @@
-import { recipes } from '../data/Recipes'
+// import { recipes } from '../data/Recipes'
+import paginationTestRecipes from "../data/PaginationTestRecipes"
+
 import { useParams } from 'react-router-dom'
 import './ShowRecipe.css'
 import { Recipe } from '../types'
@@ -6,7 +8,7 @@ import { Recipe } from '../types'
 function ShowRecipe() {
 
     const localStorageRecipes = JSON.parse(localStorage.getItem('recipes') ?? "[]")
-    const allRecipes: Recipe[] = [...recipes, ...localStorageRecipes];
+    const allRecipes: Recipe[] = [...paginationTestRecipes, ...localStorageRecipes];
     console.log(allRecipes);
 
     const { id } = useParams();
