@@ -36,16 +36,15 @@ function Cuisines(props: CuisinesProps) {
     return (
         <div>
             <h2>What do you want to cook today?</h2>
-            <ScrollContainer>
+            <ScrollContainer >
                 <div className="cuisine-buttons">
-                    {uniqueCuisines.map(cuisine => (
+                    {uniqueCuisines.map(cuisine =>
                         <div
                             className={"cuisine-button-container"}
                             key={cuisine}
                             onClick={() => handleCuisineSelection(cuisine)}>
                             <button className={`cuisine-button ${selectedCuisine === cuisine ? 'selected' : ''}`}>{cuisine}</button>
                         </div>
-                    )
                     )}
                 </div>
             </ScrollContainer>

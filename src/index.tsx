@@ -18,18 +18,18 @@ const router = createBrowserRouter([
   {
     path: "/create-recipe",
     element:
-      <Layout>
+      <Layout searchValue={''} setSearchValue={() => { }}>
         <CreateRecipe />
       </Layout>
   },
   {
     path: "/show/:id",
     element:
-      <Layout>
+      <Layout searchValue={''} setSearchValue={() => { }}>
         <ShowRecipe />
       </Layout>
   },
-  
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);

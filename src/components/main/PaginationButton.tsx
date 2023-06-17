@@ -4,15 +4,27 @@ import { useNavigate } from 'react-router';
 type PaginationButtonProps = {
     pageNum: number;
     disabled?: boolean;
+    searchValue: string | null;
+    cuisine: string | null;
 }
 
 function PaginationButton(props: PaginationButtonProps) {
-    const { pageNum, disabled } = props;
+    const { pageNum, disabled, searchValue, cuisine } = props;
+    console.log("🚀 ~ file: PaginationButton.tsx:13 ~ PaginationButton ~ cuisine:", props.cuisine)
+    console.log("🚀 ~ file: PaginationButton.tsx:13 ~ PaginationButton ~ searchValue:", searchValue)
     const navigate = useNavigate();
 
+
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    urlSearchParams.set('page', String(pageNum));
+    urlSearchParams.set('cuisine', cuisine || '');
+    urlSearchParams.set('searchValue', searchValue || '');
+
+    const url = `/?${urlSearchParams.toString()}`;
+
     function navigateToPage(pageNum: number) {
-        console.log("🚀 ~ file: PaginationButton.tsx:14 ~ navigateToPage ~ pageNum:", pageNum)
-        navigate(`/?page=${pageNum}`);
+        navigate(url);
         window.location.reload();
     }
 

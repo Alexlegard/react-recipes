@@ -1,17 +1,20 @@
-function SearchBar() {
+function SearchBar(props) {
+    const { searchValue, setSearchValue } = props;
 
-    function handleSearchBarChange() {
-        
+    function handleSearchBarChange(value) {
+        setSearchValue(value);
     }
+
+    console.log("Hello! " + searchValue);
 
     return (
         <div className="searchBarContainer">
-            <input 
+            <input
                 type="text"
                 className="searchBar"
                 placeholder="Search..."
-                value={value}
-                onChange={(e)=>{
+                value={searchValue || ''}
+                onChange={(e) => {
                     handleSearchBarChange(e.target.value);
                 }}
             />

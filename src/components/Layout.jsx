@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './header/Header'
 import Main from './main/Main'
 import Footer from './footer/Footer'
 import './Layout.css'
 
-function Layout({ children, name = "" }) {
+function Layout({ children, searchValue, setSearchValue }, props) {
+
   return <>
     <div className="container">
-      <Header />
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
       {children}
       <Footer />
     </div>
