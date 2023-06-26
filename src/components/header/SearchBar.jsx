@@ -1,11 +1,5 @@
 function SearchBar(props) {
-    const { searchValue, setSearchValue } = props;
-
-    function handleSearchBarChange(value) {
-        setSearchValue(value);
-    }
-
-    console.log("Hello! " + searchValue);
+    const { searchValue, setSearchValue, handleSearchBarChange } = props;
 
     return (
         <div className="searchBarContainer">

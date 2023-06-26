@@ -18,14 +18,20 @@ const router = createBrowserRouter([
   {
     path: "/create-recipe",
     element:
-      <Layout searchValue={''} setSearchValue={() => { }}>
+      <Layout
+        searchValue={''}
+        setSearchValue={() => { }}
+        handleSearchBarChange={''}>
         <CreateRecipe />
       </Layout>
   },
   {
     path: "/show/:id",
     element:
-      <Layout searchValue={''} setSearchValue={() => { }}>
+      <Layout
+        searchValue={''}
+        setSearchValue={() => { }}
+        handleSearchBarChange={''}>
         <ShowRecipe />
       </Layout>
   },

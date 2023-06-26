@@ -3,7 +3,7 @@ import CreateRecipeForm from '../components/pageComponents/CreateRecipeForm'
 
 function CreateRecipe() {
   return (
-    <div>
+    <div className="form-container">
       <CreateRecipeForm />
     </div>
   )

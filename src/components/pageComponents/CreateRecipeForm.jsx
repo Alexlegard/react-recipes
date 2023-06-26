@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './forms.css'
-import { recipes } from "../../data/Recipes"
+// import { recipes } from "../../data/Recipes"
+import paginationTestRecipes from "../../data/PaginationTestRecipes"
 
 function CreateRecipeForm() {
 
-    const numRecipesJsRecipes = recipes.length + 1;
+    // Change this variable to switch to the other data set
+    const storedRecipes = paginationTestRecipes;
+
+    const numRecipesJsRecipes = storedRecipes.length + 1;
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [ingredients, setIngredients] = useState('')
@@ -60,7 +64,7 @@ function CreateRecipeForm() {
 
     return (
         <div className="create">
-            <h2>Create a New Recipe</h2>
+            <h2>Create New Recipe</h2>
             <form onSubmit={handleSubmit}>
                 <label>Recipe Name:</label>
                 <input

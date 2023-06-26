@@ -4,19 +4,11 @@ import PaginationButton from './PaginationButton';
 type PaginationProps = {
   numRecipes: number;
   recipesPerPage: number;
-  searchValue: string | null;
-  cuisine: string | null;
+  handlePaginationButtonClick: (page: number) => void;
 };
 
 function Pagination(props: PaginationProps) {
-  const { numRecipes, recipesPerPage, searchValue, cuisine } = props;
-  console.log("🚀 ~ file: Pagination.tsx:13 ~ Pagination ~ numRecipes:", numRecipes)
-  console.log("🚀 ~ file: Pagination.tsx:13 ~ Pagination ~ recipesPerPage:", recipesPerPage)
-  console.log("🚀 ~ file: Pagination.tsx:13 ~ Pagination ~ cuisine:", cuisine)
-  console.log("🚀 ~ file: Pagination.tsx:13 ~ Pagination ~ searchValue:", searchValue)
-
-
-
+  const { numRecipes, recipesPerPage, handlePaginationButtonClick } = props;
   const numPages = Math.ceil(numRecipes / recipesPerPage);
   const pageButtons: JSX.Element[] = [];
 
@@ -27,8 +19,7 @@ function Pagination(props: PaginationProps) {
         key={1}
         pageNum={1}
         disabled={true}
-        searchValue={searchValue}
-        cuisine={cuisine}
+        handlePaginationButtonClick={handlePaginationButtonClick}
       />
     );
   }
@@ -39,8 +30,8 @@ function Pagination(props: PaginationProps) {
         key={i}
         pageNum={i}
         disabled={numPages === 1}
-        searchValue={searchValue}
-        cuisine={cuisine} />
+        handlePaginationButtonClick={handlePaginationButtonClick}
+      />
     );
   }
 
