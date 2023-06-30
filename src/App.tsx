@@ -52,7 +52,6 @@ function App() {
   }, [])
 
   const handlePaginationRightArrowClick = useCallback((page: number, numPages: number) => {
-    console.log("Inside handlePaginationRightArrowClick function.");
     let newPage = page + 1;
 
     if (newPage > numPages) {
