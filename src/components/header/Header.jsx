@@ -30,8 +30,6 @@ function Header(props) {
 					<li><Link to="/">List</Link></li>
 					<li><Link to="/create-recipe">Add</Link></li>
 					<li><SearchBar
-						searchValue={props.searchValue}
-						setSearchValue={props.setSearchValue}
 						handleSearchBarChange={props.handleSearchBarChange} />
 					</li>
 				</ul>

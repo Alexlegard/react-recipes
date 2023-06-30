@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import RecipeList from './RecipeList'
 import Pagination from './Pagination'
 import './Main.css'
@@ -6,15 +5,12 @@ import './Main.css'
 import paginationTestRecipes from "../../data/PaginationTestRecipes"
 import { Recipe } from "../../types"
 import Cuisines from "./Cuisines"
+import { useGlobalStateStore } from 'utils/store'
 
 
 type MainProps = {
-  searchValue: string | null;
-  isSearchbarModified: boolean;
   pageNum: number;
-  cuisine: string | null;
   url: string | null;
-  setCuisine: (cuisine: string | null) => void;
   handlePaginationButtonClick: (page: number) => void;
   handleCuisineButtonClick: (cuisine: string | null, cuisineIsSelected: boolean) => void;
 };
@@ -28,8 +24,7 @@ type MainProps = {
 // Finally we display it.
 
 function Main(props: MainProps) {
-  const { cuisine,
-    searchValue,
+  const {
     pageNum,
     handlePaginationButtonClick,
     handleCuisineButtonClick } = props;
@@ -40,11 +35,14 @@ function Main(props: MainProps) {
   // Set number of recipes per page
   const recipesPerPage = 10;
 
+  // TODO talk with Daniel about possible cleanup here?
+
   // Create a combined array of stored recipes and localstorage recipes
   const lsRecipes = localStorage.getItem('recipes') || ""
   const localStorageRecipes = lsRecipes ? JSON.parse(lsRecipes) : []
   let allRecipes: Recipe[] = [...storedRecipes, ...localStorageRecipes];
-
+  const searchValue = useGlobalStateStore(state => state.searchValue)
+  const cuisine = useGlobalStateStore(state => state.cuisine)
   let searchValuefilteredRecipes = filterSearchValue(allRecipes, searchValue);
   let cuisineFilteredRecipes = filterCuisine(searchValuefilteredRecipes, cuisine);
   let paginatedRecipes = paginateRecipes(cuisineFilteredRecipes, pageNum, recipesPerPage);
@@ -99,5 +97,10 @@ function Main(props: MainProps) {
     return recipes.slice(startIndex, endIndex);
   }
 }
+// Normal comment
+// * Highlight important information
+// ! Alert
+// ? Asking a question
+// TODO: Something that I need to do
 
 export default Main

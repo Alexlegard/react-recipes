@@ -19,8 +19,6 @@ const router = createBrowserRouter([
     path: "/create-recipe",
     element:
       <Layout
-        searchValue={''}
-        setSearchValue={() => { }}
         handleSearchBarChange={''}>
         <CreateRecipe />
       </Layout>
@@ -29,8 +27,6 @@ const router = createBrowserRouter([
     path: "/show/:id",
     element:
       <Layout
-        searchValue={''}
-        setSearchValue={() => { }}
         handleSearchBarChange={''}>
         <ShowRecipe />
       </Layout>
