@@ -1,16 +1,27 @@
 import './pagination.css';
 import PaginationButton from './PaginationButton';
+import PaginationLeftArrow from './PaginationLeftArrow';
+import PaginationRightArrow from './PaginationRightArrow';
 
 type PaginationProps = {
+  pageNum: number,
   numRecipes: number;
   recipesPerPage: number;
   handlePaginationButtonClick: (page: number) => void;
+  handlePaginationLeftArrowClick: (page: number) => void;
+  handlePaginationRightArrowClick: (page: number, numPages: number) => void;
 };
 
 function Pagination(props: PaginationProps) {
-  const { numRecipes, recipesPerPage, handlePaginationButtonClick } = props;
+  const { pageNum,
+    numRecipes,
+    recipesPerPage,
+    handlePaginationButtonClick,
+    handlePaginationLeftArrowClick,
+    handlePaginationRightArrowClick } = props;
   const numPages = Math.ceil(numRecipes / recipesPerPage);
   const pageButtons: JSX.Element[] = [];
+  const arrowsDisabled = (numPages === 1);
 
   // If numRecipes is 0, display a single button with pageNum of 1 and disabled.
   if (numRecipes === 0) {
@@ -37,13 +48,18 @@ function Pagination(props: PaginationProps) {
 
   return (
     <div className="pagination">
-      <button
-        className="pagination-button"
-        disabled={numPages === 1}>
-        &larr;
-      </button>
+      <PaginationLeftArrow
+        pageNum={pageNum}
+        disabled={arrowsDisabled}
+        handlePaginationLeftArrowClick={handlePaginationLeftArrowClick}
+      />
       {pageButtons}
-      <button className="pagination-button" disabled={numPages === 1}>&rarr;</button>
+      <PaginationRightArrow
+        pageNum={pageNum}
+        numPages={numPages}
+        disabled={arrowsDisabled}
+        handlePaginationRightArrowClick={handlePaginationRightArrowClick}
+      />
     </div>
   )
 }

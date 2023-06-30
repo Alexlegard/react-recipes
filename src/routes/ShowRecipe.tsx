@@ -24,7 +24,7 @@ function ShowRecipe() {
     const ingredientsList = thisRecipe.ingredients ? thisRecipe.ingredients.join(', ') : null
 
     return (
-        <div>
+        <div className="show">
             <h1>{thisRecipe.name}</h1>
 
             <div className="description">{thisRecipe.description}</div>

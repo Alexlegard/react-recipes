@@ -42,6 +42,25 @@ function App() {
     setPageNum(page);
   }, [])
 
+  const handlePaginationLeftArrowClick = useCallback((page: number) => {
+    let newPage = page - 1;
+
+    if (newPage < 1) {
+      return;
+    }
+    setPageNum(newPage);
+  }, [])
+
+  const handlePaginationRightArrowClick = useCallback((page: number, numPages: number) => {
+    console.log("Inside handlePaginationRightArrowClick function.");
+    let newPage = page + 1;
+
+    if (newPage > numPages) {
+      return;
+    }
+    setPageNum(newPage);
+  }, [])
+
   // This function should change the state as the user changes cuisine.
   // useEffect should navigate to that url.
   const handleCuisineButtonClick = useCallback((cuisine: string | null, cuisineIsSelected: boolean) => {
@@ -92,6 +111,8 @@ function App() {
           pageNum={pageNum}
           url={url}
           handlePaginationButtonClick={handlePaginationButtonClick}
+          handlePaginationLeftArrowClick={handlePaginationLeftArrowClick}
+          handlePaginationRightArrowClick={handlePaginationRightArrowClick}
           handleCuisineButtonClick={handleCuisineButtonClick} />
       </Layout>
     </div>

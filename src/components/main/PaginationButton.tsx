@@ -1,5 +1,4 @@
 import './pagination.css';
-//import { useNavigate } from 'react-router';
 
 type PaginationButtonProps = {
     pageNum: number;
@@ -9,13 +8,6 @@ type PaginationButtonProps = {
 
 function PaginationButton(props: PaginationButtonProps) {
     const { pageNum, disabled, handlePaginationButtonClick } = props;
-    //const navigate = useNavigate();
-    //console.log("🚀 ~ file: PaginationButton.tsx:15 ~ PaginationButton ~ navigate:", navigate)
-
-
-
-
-    //console.log("🚀 ~ file: PaginationButton.tsx:24 ~ PaginationButton ~ url:", url)
 
     const handleClick = () => {
         handlePaginationButtonClick(pageNum);

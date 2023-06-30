@@ -12,6 +12,8 @@ type MainProps = {
   pageNum: number;
   url: string | null;
   handlePaginationButtonClick: (page: number) => void;
+  handlePaginationLeftArrowClick: (page: number) => void;
+  handlePaginationRightArrowClick: (page: number, numPages: number) => void;
   handleCuisineButtonClick: (cuisine: string | null, cuisineIsSelected: boolean) => void;
 };
 
@@ -27,6 +29,8 @@ function Main(props: MainProps) {
   const {
     pageNum,
     handlePaginationButtonClick,
+    handlePaginationLeftArrowClick,
+    handlePaginationRightArrowClick,
     handleCuisineButtonClick } = props;
 
   // Change this variable to switch to the other data set
@@ -56,9 +60,12 @@ function Main(props: MainProps) {
         handleCuisineButtonClick={handleCuisineButtonClick} />
       <RecipeList allRecipes={paginatedRecipes} />
       <Pagination
+        pageNum={pageNum}
         numRecipes={cuisineFilteredRecipes.length}
         recipesPerPage={recipesPerPage}
-        handlePaginationButtonClick={handlePaginationButtonClick} />
+        handlePaginationButtonClick={handlePaginationButtonClick}
+        handlePaginationLeftArrowClick={handlePaginationLeftArrowClick}
+        handlePaginationRightArrowClick={handlePaginationRightArrowClick} />
     </div>
   )
 
