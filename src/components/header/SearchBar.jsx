@@ -2,9 +2,7 @@ import { useGlobalStateStore } from "utils/store";
 
 function SearchBar(props) {
     const { handleSearchBarChange } = props;
-    const setSearchValue = useGlobalStateStore(state => state.setSearchValue)
     const searchValue = useGlobalStateStore(state => state.searchValue)
-
     return (
         <div className="searchBarContainer">
             <input

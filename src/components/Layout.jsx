@@ -1,9 +1,7 @@
-import React, { memo, useState } from 'react'
+import React, { memo } from 'react'
 import Header from './header/Header'
-import Main from './main/Main'
 import Footer from './footer/Footer'
 import './Layout.css'
-import { useGlobalStateStore } from 'utils/store'
 
 function Layout({ children, handleSearchBarChange }, props) {
 

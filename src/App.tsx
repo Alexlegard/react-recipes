@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom'
 import './App.css'
 import Layout from './components/Layout'
@@ -6,41 +6,36 @@ import Main from './components/main/Main'
 import useWhyDidYouUpdate from 'utils/useWhyDidYouUpdate';
 import { useGlobalStateStore } from 'utils/store';
 
-// global state store
-// zustand
-
-
 function App() {
 
   const navigate = useNavigate();
 
   // TODO appropriate for global state?
-  // State
   const setSearchValue = useGlobalStateStore(state => state.setSearchValue)
   const searchValue = useGlobalStateStore(state => state.searchValue)
   const setCuisine = useGlobalStateStore(state => state.setCuisine)
   const cuisine = useGlobalStateStore(state => state.cuisine)
-
-  // TODO consider which of these (all?) is appropriate to move into global state
-  // const setPageNum = useGlobalStateStore(state => state.setPageNum)
-  // const pageNum = useGlobalStateStore(state => state.pageNum)
-  const [pageNum, setPageNum] = useState<number>(1);
-  console.log("🚀 ~ file: App.tsx:30 ~ App ~ pageNum:", pageNum)
-  const [url, setUrl] = useState('');
-  console.log("🚀 ~ file: App.tsx:32 ~ App ~ url:", url)
+  const setPageNum = useGlobalStateStore(state => state.setPageNum)
+  const pageNum = useGlobalStateStore(state => state.pageNum)
+  // const [pageNum, setPageNum] = useState<number>(1);
+  // console.log("🚀 ~ file: App.tsx:30 ~ App ~ pageNum:", pageNum)
+  const setUrl = useGlobalStateStore(state => state.setUrl)
+  const url = useGlobalStateStore(state => state.url)
+  // const [url, setUrl] = useState('');
+  // console.log("🚀 ~ file: App.tsx:32 ~ App ~ url:", url)
 
   // This function should change the state as the user types in the
   // search bar. useEffect should navigate to that url.
   const handleSearchBarChange = useCallback((value: string | null) => {
     setPageNum(1);
     setSearchValue(value);
-  }, []);
+  }, [setPageNum, setSearchValue]);
 
   // This function should change the state as the user clicks pagination
   // buttons. useEffect should navigate to that url.
   const handlePaginationButtonClick = useCallback((page: number) => {
     setPageNum(page);
-  }, [])
+  }, [setPageNum])
 
   const handlePaginationLeftArrowClick = useCallback((page: number) => {
     let newPage = page - 1;
@@ -49,7 +44,7 @@ function App() {
       return;
     }
     setPageNum(newPage);
-  }, [])
+  }, [setPageNum])
 
   const handlePaginationRightArrowClick = useCallback((page: number, numPages: number) => {
     let newPage = page + 1;
@@ -58,7 +53,7 @@ function App() {
       return;
     }
     setPageNum(newPage);
-  }, [])
+  }, [setPageNum])
 
   // This function should change the state as the user changes cuisine.
   // useEffect should navigate to that url.
@@ -72,7 +67,7 @@ function App() {
     } else {
       setCuisine(cuisine);
     }
-  }, [])
+  }, [setCuisine, setPageNum])
 
   // Function for updating the url by passing the searchValue & pageNum
   useEffect(() => {
@@ -91,7 +86,7 @@ function App() {
       navigate(newUrl);
     }
 
-  }, [searchValue, pageNum, cuisine, url]);
+  }, [searchValue, pageNum, cuisine, url, navigate, setUrl]);
 
   useWhyDidYouUpdate("App", {
     searchValue,
