@@ -24,11 +24,8 @@ export const useGlobalStateStore = create<GlobalState>()(
                 setSearchValue: (nextSearchValue) => set(state => ({ searchValue: nextSearchValue })),
                 cuisine: null,
                 setCuisine: (nextCuisine) => set(state => ({ cuisine: nextCuisine })),
-                // Todo why doesn't this work?
                 pageNum: 1,
                 setPageNum: (nextPageNum) => set(state => ({ pageNum: nextPageNum })),
-                // Todo url for convenience? but, may cause unnecessary re-renders, -> whenever possible, we prefer to "derive" state rather than sync it 
-                // Todo https://kentcdodds.com/blog/dont-sync-state-derive-it
                 url: '',
                 setUrl: (nextUrl) => set(state => ({ url: nextUrl }))
             }),

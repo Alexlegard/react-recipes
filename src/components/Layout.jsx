@@ -3,13 +3,13 @@ import Header from './header/Header'
 import Footer from './footer/Footer'
 import './Layout.css'
 
-function Layout({ children, handleSearchBarChange }, props) {
+function Layout({ children, handleSearchBarSubmit }, props) {
 
   return <>
     <div className="container">
       <Header
 
-        handleSearchBarChange={handleSearchBarChange} />
+        handleSearchBarSubmit={handleSearchBarSubmit} />
       {children}
       <Footer />
     </div>

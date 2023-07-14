@@ -26,7 +26,7 @@ function App() {
 
   // This function should change the state as the user types in the
   // search bar. useEffect should navigate to that url.
-  const handleSearchBarChange = useCallback((value: string | null) => {
+  const handleSearchBarSubmit = useCallback((value: string | null) => {
     setPageNum(1);
     setSearchValue(value);
   }, [setPageNum, setSearchValue]);
@@ -88,19 +88,21 @@ function App() {
 
   }, [searchValue, pageNum, cuisine, url, navigate, setUrl]);
 
+  hello();
+
   useWhyDidYouUpdate("App", {
     searchValue,
     pageNum,
     cuisine,
     url,
-    handleSearchBarChange,
+    handleSearchBarSubmit,
     handlePaginationButtonClick,
     handleCuisineButtonClick
   })
   return (
     <div className="App">
       <Layout
-        handleSearchBarChange={handleSearchBarChange}>
+        handleSearchBarSubmit={handleSearchBarSubmit}>
         <Main
           pageNum={pageNum}
           url={url}
@@ -114,3 +116,18 @@ function App() {
 }
 
 export default App;
+
+
+// export function fetchMealData(searchValue) {
+//   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}'
+
+//   fetch(url)
+//       .then(response => response.json())
+//       .then((data) => {
+//           console.log(data);
+//       })
+// }
+
+function hello() {
+  return "Hello world";
+}

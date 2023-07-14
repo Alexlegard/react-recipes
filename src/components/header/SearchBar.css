@@ -1,0 +1,8 @@
+.searchForm {
+    display: flex;
+    align-items: center;
+}
+
+.searchbar-submit-btn {
+    margin-bottom: 9px;
+}

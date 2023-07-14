@@ -30,7 +30,7 @@ function Header(props) {
 					<li><Link to="/">List</Link></li>
 					<li><Link to="/create-recipe">Add</Link></li>
 					<li><SearchBar
-						handleSearchBarChange={props.handleSearchBarChange} />
+						handleSearchBarSubmit={props.handleSearchBarSubmit} />
 					</li>
 				</ul>
 			</nav>
