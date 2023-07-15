@@ -40,8 +40,6 @@ function Main(props: MainProps) {
   // Set number of recipes per page
   const recipesPerPage = 10;
 
-  // TODO talk with Daniel about possible cleanup here?
-
   const searchValue = useGlobalStateStore(state => state.searchValue)
   const cuisine = useGlobalStateStore(state => state.cuisine)
 

@@ -118,7 +118,7 @@ function App() {
 export default App;
 
 
-// export function fetchMealData(searchValue) {
+// function fetchMealData(searchValue) {
 //   const url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}'
 
 //   fetch(url)
