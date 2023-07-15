@@ -2,6 +2,7 @@ export type Recipe = {
     id: number,
     name: string,
     image: string,
+    MealDBImage: string,
     ingredients: string[],
     description: string,
     instructions: string,

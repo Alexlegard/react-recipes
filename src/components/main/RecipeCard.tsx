@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 type RecipeCardProps = {
 	id: string,
 	name: string,
-	description: string
+	description: string,
+	image: string | null
 }
 
 function RecipeCard(props: RecipeCardProps) {
@@ -14,7 +15,7 @@ function RecipeCard(props: RecipeCardProps) {
 			<div className="recipe-card">
 				<h3>{props.name}</h3>
 				<div>{props.description}</div>
-
+				<div>Image: {props.image}</div>
 			</div>
 		</Link>
 	);
