@@ -15,7 +15,7 @@ function RecipeCard(props: RecipeCardProps) {
             <div className="recipe-card">
                 <h3>{props.name}</h3>
                 <div>{props.description}</div>
-				<div>Image: {props.MealDbImage}</div>
+                <div>Image: {props.MealDbImage}</div>
             </div>
         </Link>
     );
