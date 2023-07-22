@@ -26,7 +26,7 @@ function MealDbRecipeCard(props: RecipeCardProps) {
                 console.log("strMealThumb: ", data.meals[0].strMealThumb);
                 setRecipeImage(data.meals[0].strMealThumb);
             })
-    }, [])
+    }, [MealDbImage])
 
 
     return (

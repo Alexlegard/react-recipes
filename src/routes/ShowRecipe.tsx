@@ -36,7 +36,7 @@ function ShowRecipe() {
                 setRecipeImage(data.meals[0].strMealThumb);
             })
 
-    }, [])
+    }, [thisRecipe])
 
     if (!thisRecipe) {
         return (
