@@ -53,8 +53,6 @@ function Main(props: MainProps) {
   let cuisineFilteredRecipes = filterCuisine(searchValuefilteredRecipes, cuisine);
   let paginatedRecipes = paginateRecipes(cuisineFilteredRecipes, pageNum, recipesPerPage);
 
-  console.log(paginatedRecipes);
-
   return (
     <div className="main">
       <Cuisines allRecipes={allRecipes}
