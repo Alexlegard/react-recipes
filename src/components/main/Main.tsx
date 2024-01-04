@@ -78,5 +78,5 @@ function Main(props: MainProps) {
 export default Main
 
 
-// TODO images
-// TODO later? user accounts / login? try Auth0 for simplest solution
+// TODO later? user accounts / login? try Auth0 for simplest solution.
+// TODO Caching API calls for faster performance.

@@ -13,9 +13,9 @@ function MealDbRecipeCard(props: RecipeCardProps) {
     const { name, description, MealDbImage } = props;
     const [recipeImage, setRecipeImage] = useState<string | undefined>(undefined);
 
-    //console.log(MealDbImage);
-
     useEffect(() => {
+
+
 
         fetch(MealDbImage)
             .then(res => {

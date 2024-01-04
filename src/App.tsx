@@ -5,12 +5,18 @@ import Layout from './components/Layout'
 import Main from './components/main/Main'
 import useWhyDidYouUpdate from 'utils/useWhyDidYouUpdate';
 import { useGlobalStateStore } from 'utils/store';
+import {
+  Routes,
+  Route
+} from "react-router-dom"
+import CreateRecipe from './routes/CreateRecipe';
+import ShowRecipe from './routes/ShowRecipe';
 
 function App() {
 
   const navigate = useNavigate();
 
-  // TODO appropriate for global state?
+  // Setting global state variables!
   const setSearchValue = useGlobalStateStore(state => state.setSearchValue)
   const searchValue = useGlobalStateStore(state => state.searchValue)
   const setCuisine = useGlobalStateStore(state => state.setCuisine)
@@ -88,6 +94,7 @@ function App() {
 
   }, [searchValue, pageNum, cuisine, url, navigate, setUrl]);
 
+  // Custom hook used for debugging purposes
   useWhyDidYouUpdate("App", {
     searchValue,
     pageNum,
@@ -97,19 +104,40 @@ function App() {
     handlePaginationButtonClick,
     handleCuisineButtonClick
   })
+
   return (
-    <div className="App">
-      <Layout
-        handleSearchBarSubmit={handleSearchBarSubmit}>
-        <Main
-          pageNum={pageNum}
-          url={url}
-          handlePaginationButtonClick={handlePaginationButtonClick}
-          handlePaginationLeftArrowClick={handlePaginationLeftArrowClick}
-          handlePaginationRightArrowClick={handlePaginationRightArrowClick}
-          handleCuisineButtonClick={handleCuisineButtonClick} />
-      </Layout>
-    </div>
+    <Routes>
+      <Route path="/" element={
+        <div className="App">
+          <Layout
+            handleSearchBarSubmit={handleSearchBarSubmit}>
+            <Main
+              pageNum={pageNum}
+              url={url}
+              handlePaginationButtonClick={handlePaginationButtonClick}
+              handlePaginationLeftArrowClick={handlePaginationLeftArrowClick}
+              handlePaginationRightArrowClick={handlePaginationRightArrowClick}
+              handleCuisineButtonClick={handleCuisineButtonClick} />
+          </Layout>
+        </div>
+      } />
+      <Route
+        path="/create-recipe"
+        element={
+          <Layout handleSearchBarSubmit={''}>
+            <CreateRecipe />
+          </Layout>
+        }
+      />
+      <Route
+        path="/show/:id"
+        element={
+          <Layout handleSearchBarSubmit={''}>
+            <ShowRecipe />
+          </Layout>
+        }
+      />
+    </Routes>
   );
 }
 
