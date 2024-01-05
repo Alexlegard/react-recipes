@@ -1,7 +1,5 @@
 import { Recipe } from "../../types"
 import "./Cuisines.css"
-import { ScrollContainer } from 'react-indiana-drag-scroll';
-import 'react-indiana-drag-scroll/dist/style.css'
 import CuisineButton from './CuisineButton'
 
 type CuisinesProps = {
@@ -47,9 +45,8 @@ function Cuisines(props: CuisinesProps) {
     return (
         <div>
             <h2>What do you want to cook today?</h2>
-            <ScrollContainer >
-                {cuisineButtons}
-            </ScrollContainer>
+
+            {cuisineButtons}
         </div>
     );
 }
