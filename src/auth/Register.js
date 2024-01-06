@@ -1,6 +1,7 @@
 import { React, useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import './Register.css';
 
 // Username must be one letter followed by one number, letter, dash or underscore.
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -13,17 +14,17 @@ function Register() {
     const userRef = useRef();
     const errRef = useRef();
 
-    const [user, setUser] = useState();
-    const [validName, setValidName] = useState(false);
-    const [userFocus, setUserFocus] = useState(false);
+    const [user, setUser] = useState(); // Username
+    const [validName, setValidName] = useState(false); // Username is valid
+    const [userFocus, setUserFocus] = useState(false); // Focus is on username field
 
-    const [pwd, setPwd] = useState('');
-    const [validPwd, setValidPwd] = useState(false);
-    const [pwdFocus, setPwdFocus] = useState(false);
+    const [pwd, setPwd] = useState(''); // Password
+    const [validPwd, setValidPwd] = useState(false); // Password is valid
+    const [pwdFocus, setPwdFocus] = useState(false); // Focus is on password field
 
-    const [matchPwd, setMatchPwd] = useState('');
-    const [validMatch, setValidMatch] = useState(false);
-    const [matchFocus, setMatchFocus] = useState(false);
+    const [matchPwd, setMatchPwd] = useState(''); // "Confirm password" field
+    const [validMatch, setValidMatch] = useState(false); // "Confirm password" field is valid
+    const [matchFocus, setMatchFocus] = useState(false); // Focus is on "Confirm password"
 
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
@@ -60,11 +61,14 @@ function Register() {
     }, [user, pwd, matchPwd])
 
     return (
-        <section>
-            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}
-                aria-live="assertive">{errMsg}</p>
-            <h1>Register</h1>
-            <form>
+        <section className="registration-card">
+            <div className="register-header">
+                <h1>Register</h1>
+            </div>
+
+            <form className="registration-form">
+                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}
+                    aria-live="assertive">{errMsg}</p>
                 <label htmlFor="username">
                     Username:
                 </label>
@@ -80,7 +84,7 @@ function Register() {
                     onBlur={() => setUserFocus(false)}
                 />
                 <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
-                    <FontAwesomeIcon icon={faInfoCircle} />
+                    <FontAwesomeIcon className="faInfoCircle" icon={faInfoCircle} />
                     4 to 24 characters.<br />
                     Must begin with a letter.<br />
                     Letters, numbers, underscores and hyphens are allowed.<br />
@@ -88,12 +92,6 @@ function Register() {
 
                 <label htmlFor="password">
                     Password:
-                    <span className={validPwd ? "valid" : "hide"}>
-                        <FontAwesomeIcon icon={faCheck} />
-                    </span>
-                    <span className={validPwd || !pwd ? "hide" : "invalid"}>
-                        <FontAwesomeIcon icon={faTimes} />
-                    </span>
                 </label>
                 <input
                     type="password"
@@ -105,13 +103,13 @@ function Register() {
                     onBlur={() => setPwdFocus(false)}
                 />
                 <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
-                    <FontAwesomeIcon icon={faInfoCircle} />
+                    <FontAwesomeIcon className="faInfoCircle" icon={faInfoCircle} />
                     8 to 24 characters.<br />
                     Must include:<br />
-                    -At least one uppercase and lowercase letter<br />
-                    -At least one number<br />
-                    -At least one special character<br />
-                    Allowed special characters:
+                    • At least one uppercase and lowercase letter<br />
+                    • At least one number<br />
+                    • At least one special character<br />
+                    • Allowed special characters:
                     <span aria-label="exclamation mark">!</span>
                     <span aria-label="at symbol">@</span>
                     <span aria-label="hashtag">#</span>
@@ -121,12 +119,6 @@ function Register() {
 
                 <label htmlFor="confirm_pwd">
                     Confirm password:
-                    <span className={validMatch && matchPwd ? "valid" : "hide"}>
-                        <FontAwesomeIcon icon={faCheck} />
-                    </span>
-                    <span className={validMatch || !matchPwd ? "hide" : "invalid"}>
-                        <FontAwesomeIcon icon={faTimes} />
-                    </span>
                 </label>
                 <input
                     type="password"
@@ -137,8 +129,8 @@ function Register() {
                     onFocus={() => setMatchFocus(true)}
                     onBlur={() => setMatchFocus(false)}
                 />
-                <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-                    <FontAwesomeIcon icon={faInfoCircle} />
+                <p id="confirmnote" className={matchPwd && (pwd !== matchPwd) ? "instructions" : "offscreen"}>
+                    <FontAwesomeIcon className="faInfoCircle" icon={faInfoCircle} />
                     Both passwords must match.
                 </p>
 
@@ -147,12 +139,11 @@ function Register() {
                 </button>
             </form>
 
-            <p>
-                Already registered?<br />
-                <span className="line">
-                    <a href="#">Sign In</a>
-                </span>
-            </p>
+            <div className="registration-footer">
+                Already registered?<br /><a href="#">Sign In</a>
+
+            </div>
+
         </section>
     )
 }
