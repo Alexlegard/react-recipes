@@ -2,7 +2,7 @@ import RecipeList from './RecipeList'
 import Pagination from './Pagination'
 import './Main.css'
 // import { recipes } from "../../data/Recipes"
-import paginationTestRecipes from "../../data/PaginationTestRecipes"
+import paginationTestRecipes from "../../data/Recipes"
 import { Recipe } from "../../types"
 import Cuisines from "./Cuisines"
 import { useGlobalStateStore } from 'utils/store'

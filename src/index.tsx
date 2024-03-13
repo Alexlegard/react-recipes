@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider
-} from "react-router-dom"
+} from "react-router-dom";
 import './index.css';
 import App from "./App";
 import CreateRecipe from './routes/CreateRecipe';
-import ShowRecipe from './routes/ShowRecipe'
+import ShowRecipe from './routes/ShowRecipe';
 import Layout from './components/Layout';
-import Register from './auth/Register';
 
 const router = createBrowserRouter([
   {
@@ -32,15 +31,6 @@ const router = createBrowserRouter([
         <ShowRecipe />
       </Layout>
   },
-  {
-    path: "/register",
-    element:
-      <Layout
-        handleSearchBarSubmit={''}>
-        <Register />
-      </Layout>
-  },
-
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);

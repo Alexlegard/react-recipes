@@ -1,5 +1,4 @@
 import RecipeCard from './RecipeCard'
-import MealDBRecipeCard from './MealDBRecipeCard'
 
 function RecipeList(props) {
 
@@ -14,15 +13,6 @@ function RecipeList(props) {
               name={recipe.name}
               description={recipe.description}
               image={recipe.image}
-              id={recipe.id} />
-
-          } else if (!recipe.image && recipe.MealDbImage) {
-            // There's a MealDBImage but no image, meaning the recipe is a stored recipe in recipes.js or
-            // PaginationTestRecipes.js
-            return <MealDBRecipeCard key={recipe.id}
-              name={recipe.name}
-              description={recipe.description}
-              MealDbImage={recipe.MealDbImage}
               id={recipe.id} />
 
           } else {

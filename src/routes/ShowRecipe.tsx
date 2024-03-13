@@ -1,5 +1,5 @@
-// import { recipes } from '../data/Recipes'
-import paginationTestRecipes from "../data/PaginationTestRecipes"
+import { recipes } from '../data/Recipes'
+// import paginationTestRecipes from "../data/PaginationTestRecipes"
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './ShowRecipe.css'
@@ -10,7 +10,7 @@ function ShowRecipe() {
     // Derive the list of recipes from recipes.js / PaginationTestRecipes.js and
     // the recipes in localstorage.
     const localStorageRecipes = JSON.parse(localStorage.getItem('recipes') ?? "[]")
-    const allRecipes: Recipe[] = [...paginationTestRecipes, ...localStorageRecipes];
+    const allRecipes: Recipe[] = [...recipes, ...localStorageRecipes];
     const [recipeImage, setRecipeImage] = useState<string | undefined>(undefined);
     const [imageValid, setImageValid] = useState(true);
 
